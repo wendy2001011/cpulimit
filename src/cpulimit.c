@@ -242,7 +242,7 @@ void limit_process(pid_t pid, double limit, int include_children)
 		}
 
 		//adjust work and sleep time slices
-		if (pcpu < 0) {
+		if (pcpu < 0 || -1 == workingrate) {
 			//it's the 1st cycle, initialize workingrate
 			pcpu = limit;
 			workingrate = limit;
